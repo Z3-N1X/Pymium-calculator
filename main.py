@@ -7,6 +7,14 @@ space.append(elementout)
 def e(addad):
     
     output = elementout.innerHTML[8:]
+    if addad == "+":
+        if output[-1] == "+" or output =="0":
+            return
+    if addad == "=":
+        elementout.innerHTML = "Output: "+ str(eval(output))
+        window.set_html(space)  
+        return
+        
     if output == "0": output=""
     sumoutput = output + str(addad)
     elementout.innerHTML = "Output: "+ sumoutput
@@ -35,7 +43,16 @@ element = Element(Types.button, innerHTML="9", id="9", onclick=lambda: x(9))
 space.append(element)
 element = Element(Types.button, innerHTML="0", id="0", onclick=lambda: x(0))
 space.append(element)
-
+element = Element(Types.button, innerHTML="+", id="+", onclick=lambda: x("+"))
+space.append(element)
+element = Element(Types.button, innerHTML="-", id="-", onclick=lambda: x("-"))
+space.append(element)
+element = Element(Types.button, innerHTML="*", id="*", onclick=lambda: x("*"))
+space.append(element)
+element = Element(Types.button, innerHTML="/", id="/", onclick=lambda: x("/"))
+space.append(element)
+element = Element(Types.button, innerHTML="=", id="=", onclick=lambda: x("="))
+space.append(element)
 
 
 window = PyWindow(space)
