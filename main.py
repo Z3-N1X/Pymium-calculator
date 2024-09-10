@@ -3,19 +3,10 @@ from pymium import Space, PyWindow, Element, Types, Style
 space = Space("Calculator")
 output_style = Style(border="solid", border_color="black", border_radius="10px")
 
-elementout = Element(Types.div, className="output", innerHTML="0")
+elementout = Element(Types.div, className="output", innerHTML="0",style=Style(background_color= "#333", border_radius= "10px", padding= "20px", font_family= "'Monaco', monospace", font_size= "14px", line_height= "1.5", color= "#fff", box_shadow= "0 0 10px rgba(0, 0, 0, 0.5)",overflow= "auto"))
 space.append(elementout)
 
-css = """button {
-  background-image: linear-gradient(to bottom, #333, #555);
-  border: 2px solid #666;
-  border-radius: 10px;
-  color: #fff;
-  cursor: pointer;
-  transition: border-color 0.3s ease-in-out;
-  margin:3px;
-}
-
+css = """
 button:hover {
   border-color: rgb(255, 0, 0); /* red */
   animation: border-animation 1s infinite;
@@ -32,17 +23,6 @@ button:hover {
     border-color: rgb(0, 0, 255); /* blue */
   }
 }
-.output {
-  background-color: #333;
-  border-radius: 10px;
-  padding: 20px;
-  font-family: 'Monaco', monospace;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  overflow: auto;
-}
 
 .output::before {
   content: "Output: ";
@@ -50,7 +30,7 @@ button:hover {
   color: #66d9ef;
 }"""
 space.add_custom_css(css)
-button_style = Style(width="40px",height="40px")
+button_style = Style(width="40px",height="40px",background_image= "linear-gradient(to bottom, #333, #555)",border= "2px solid #666",border_radius= "10px", color= "#fff",cursor="pointer",transition= "border-color 0.3s ease-in-out",margin="3px")
 
 def e(addad):
     addad = addad.innerHTML
